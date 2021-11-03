@@ -156,7 +156,7 @@ export default function ExampleUI({
       <Events
         contracts={readContracts}
         contractName="YourContract"
-        eventName="SetPurpose"
+        eventName="EstimatedGasInUMB"
         localProvider={localProvider}
         mainnetProvider={mainnetProvider}
         startBlock={1}

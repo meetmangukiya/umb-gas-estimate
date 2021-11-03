@@ -1,6 +1,7 @@
 import { useEventListener } from "eth-hooks/events/useEventListener";
 import { List } from "antd";
 import { Address } from "../components";
+import { utils } from "ethers";
 
 /*
   ~ What it does? ~
@@ -34,7 +35,8 @@ export default function Events({ contracts, contractName, eventName, localProvid
           return (
             <List.Item key={item.blockNumber + "_" + item.args.sender + "_" + item.args.purpose}>
               <Address address={item.args[0]} ensProvider={mainnetProvider} fontSize={16} />
-              {item.args[1]}
+              <Address address={item.args[1]} ensProvider={mainnetProvider} fontSize={16} />
+              <p>{utils.formatEther(item.args?.[3])}</p>
             </List.Item>
           );
         }}

@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import Web3Modal from "web3modal";
 import "./App.css";
-import { Account, Contract, Faucet, GasGauge, Header, Ramp, ThemeSwitch } from "./components";
+import { Account, Contract, Faucet, GasGauge, Header, Ramp, ThemeSwitch, Events } from "./components";
 import { INFURA_ID, NETWORK, NETWORKS } from "./constants";
 import { Transactor } from "./helpers";
 import {
@@ -249,7 +249,7 @@ function App(props) {
   ]);
 
   // keep track of a variable from the contract in the local React state:
-  const purpose = useContractReader(readContracts, "YourContract", "purpose");
+  const purpose = useContractReader(readContracts, "UmbGasEstimator", "purpose");
 
   /*
   const addressFromENS = useResolveName(mainnetProvider, "austingriffith.eth");
@@ -455,7 +455,7 @@ function App(props) {
               }}
               to="/"
             >
-              YourContract
+              UmbGasEstimator
             </Link>
           </Menu.Item>
           <Menu.Item key="/hints">
@@ -509,13 +509,21 @@ function App(props) {
             */}
 
             <Contract
-              name="YourContract"
+              name="UmbGasEstimator"
               price={price}
               signer={userSigner}
               provider={localProvider}
               address={address}
               blockExplorer={blockExplorer}
               contractConfig={contractConfig}
+            />
+            <Events
+              contracts={readContracts}
+              contractName="UmbGasEstimator"
+              eventName="EstimatedGasInUMB"
+              localProvider={localProvider}
+              mainnetProvider={mainnetProvider}
+              startBlock={1}
             />
           </Route>
           <Route path="/hints">
