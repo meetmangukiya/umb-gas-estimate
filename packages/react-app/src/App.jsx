@@ -455,10 +455,20 @@ function App(props) {
               }}
               to="/"
             >
-              UmbGasEstimator
+              About
             </Link>
           </Menu.Item>
-          <Menu.Item key="/hints">
+          <Menu.Item key="/contract">
+            <Link
+              onClick={() => {
+                setRoute("/contract");
+              }}
+              to="/contract"
+            >
+              App
+            </Link>
+          </Menu.Item>
+          {/* <Menu.Item key="/hints">
             <Link
               onClick={() => {
                 setRoute("/hints");
@@ -467,18 +477,8 @@ function App(props) {
             >
               Hints
             </Link>
-          </Menu.Item>
-          <Menu.Item key="/exampleui">
-            <Link
-              onClick={() => {
-                setRoute("/exampleui");
-              }}
-              to="/exampleui"
-            >
-              ExampleUI
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="/mainnetdai">
+          </Menu.Item> */}
+          {/* <Menu.Item key="/mainnetdai">
             <Link
               onClick={() => {
                 setRoute("/mainnetdai");
@@ -487,8 +487,8 @@ function App(props) {
             >
               Mainnet DAI
             </Link>
-          </Menu.Item>
-          <Menu.Item key="/subgraph">
+          </Menu.Item> */}
+          {/* <Menu.Item key="/subgraph">
             <Link
               onClick={() => {
                 setRoute("/subgraph");
@@ -497,11 +497,11 @@ function App(props) {
             >
               Subgraph
             </Link>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/contract">
             {/*
                 🎛 this scaffolding is full of commonly used components
                 this <Contract/> component will automatically parse your ABI
@@ -516,6 +516,7 @@ function App(props) {
               address={address}
               blockExplorer={blockExplorer}
               contractConfig={contractConfig}
+              onlyFunctions={true}
             />
             <Events
               contracts={readContracts}
@@ -526,15 +527,15 @@ function App(props) {
               startBlock={1}
             />
           </Route>
-          <Route path="/hints">
+          {/* <Route path="/hints">
             <Hints
               address={address}
               yourLocalBalance={yourLocalBalance}
               mainnetProvider={mainnetProvider}
               price={price}
             />
-          </Route>
-          <Route path="/exampleui">
+          </Route> */}
+          <Route path="/">
             <ExampleUI
               address={address}
               userSigner={userSigner}
@@ -548,7 +549,7 @@ function App(props) {
               purpose={purpose}
             />
           </Route>
-          <Route path="/mainnetdai">
+          {/* <Route path="/mainnetdai">
             <Contract
               name="DAI"
               customContract={mainnetContracts && mainnetContracts.contracts && mainnetContracts.contracts.DAI}
@@ -558,7 +559,7 @@ function App(props) {
               blockExplorer="https://etherscan.io/"
               contractConfig={contractConfig}
               chainId={1}
-            />
+            /> */}
             {/*
             <Contract
               name="UNI"
@@ -568,16 +569,16 @@ function App(props) {
               address={address}
               blockExplorer="https://etherscan.io/"
             />
-            */}
           </Route>
-          <Route path="/subgraph">
+            */}
+          {/* <Route path="/subgraph">
             <Subgraph
               subgraphUri={props.subgraphUri}
               tx={tx}
               writeContracts={writeContracts}
               mainnetProvider={mainnetProvider}
             />
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
 
@@ -612,7 +613,7 @@ function App(props) {
           <Col span={8} style={{ textAlign: "center", opacity: 1 }}>
             <Button
               onClick={() => {
-                window.open("https://t.me/joinchat/KByvmRe5wkR-8F_zz6AjpA");
+                window.open("https://t.me/meetmangukiya");
               }}
               size="large"
               shape="round"

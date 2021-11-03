@@ -5,10 +5,10 @@ import React from "react";
 
 export default function Header() {
   return (
-    <a href="https://github.com/austintgriffith/scaffold-eth" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/meetmangukiya/umb-gas-estimate" target="_blank" rel="noopener noreferrer">
       <PageHeader
-        title="🏗 scaffold-eth"
-        subTitle="forkable Ethereum dev stack focused on fast product iteration"
+        title="⛽ $UMB Gas Estimator"
+        subTitle="Estimated gas costs for executing a smart contract tx in $UMB demonstrating usage of umbrella network oracles."
         style={{ cursor: "pointer" }}
       />
     </a>

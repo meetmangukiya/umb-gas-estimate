@@ -55,6 +55,7 @@ export default function Contract({
   blockExplorer,
   chainId,
   contractConfig,
+  onlyFunctions = false,
 }) {
   const contracts = useContractLoader(provider, contractConfig, chainId);
   let contract;
@@ -85,6 +86,8 @@ export default function Contract({
 
     if (typeof contractFunc === "function") {
       if (isQueryable(contractFuncInfo[1])) {
+        if (onlyFunctions) return null;
+
         // If there are no inputs, just display return value
         return (
           <DisplayVariable
