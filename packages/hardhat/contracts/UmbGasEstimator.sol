@@ -36,7 +36,7 @@ contract UmbGasEstimator {
     return price;
   }
 
-  function estimateArbitraryCallGasInUMB(address contractAddress, uint256 gasPrice, bytes memory data) public returns (uint256) {
+  function estimateArbitraryCallGasInUMB(address contractAddress, bytes memory data) public returns (uint256) {
     uint256 gasLeftBeforeCall = gasleft();
 
     (bool success, ) = contractAddress.call(data);
@@ -45,7 +45,7 @@ contract UmbGasEstimator {
     uint256 gasLeftAfterCall = gasleft();
 
     uint256 gasUsed = gasLeftBeforeCall - gasLeftAfterCall;
-    uint256 etherUsed = gasPrice * gasUsed;
+    uint256 etherUsed = tx.gasprice * gasUsed;
 
     uint256 etherUsd = getEthUsdPrice();
     uint256 umbUsd = getUmbUsdPrice();
