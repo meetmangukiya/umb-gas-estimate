@@ -40,11 +40,16 @@ export default function Events({ contracts, contractName, eventName, localProvid
               <br />
               To(Contract): <Address address={item.args[1]} ensProvider={mainnetProvider} fontSize={16} />
               <br />
-              <p>Gas used in UMB: {utils.formatEther(item.args?.[3])} $UMB</p>
-              <p>Gas used: {item.args?.[4]?.toString()}</p>
-              <p>Gas price in Ether: {utils.formatUnits(item.args?.[5], "gwei")} gwei</p>
-              <p>Ether price in USD: $ {utils.formatEther(item.args?.[6])}</p>
-              <p>UMB price in USD: $ {utils.formatUnits(item.args?.[7], "gwei")}</p>
+              <p>
+                Gas used in UMB: {utils.formatEther(item.args?.[3])} $UMB Gas used: {item.args?.[4]?.toString()}
+                <br />
+                Transaction gas price in Ether: {utils.formatUnits(item.args?.[5], "gwei")} gwei
+                <br />
+                Ether price in USD: $ {utils.formatEther(item.args?.[6])}
+                <br />
+                UMB price in USD: $ {utils.formatEther(item.args?.[7])}
+                <br />
+              </p>
             </List.Item>
           );
         }}
