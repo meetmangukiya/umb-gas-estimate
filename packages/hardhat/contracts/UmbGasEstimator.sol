@@ -20,7 +20,16 @@ contract UmbGasEstimator {
   bytes32 ETH_USD_KEY = 0x000000000000000000000000000000000000000000000000004554482d555344;
   bytes32 UMB_USD_KEY = 0x00000000000000000000000000000000000000000000000000554d422d555344;
 
-  event EstimatedGasInUMB(address indexed sender, address indexed contractAddress, bytes data, uint256 gasUsedInUmb);
+  event EstimatedGasInUMB(
+    address indexed sender,
+    address indexed contractAddress,
+    bytes data,
+    uint256 gasUsedInUmb,
+    uint256 gasUsed,
+    uint256 gasPrice,
+    uint256 etherPriceInUSD,
+    uint256 umbPriceInUSD
+  );
 
   function getChainContract() public view returns (IChain) {
     return IChain(contractRegistry.getAddressByString("Chain"));
@@ -53,7 +62,16 @@ contract UmbGasEstimator {
     uint256 gasUsedInUsd = etherUsd * etherUsed;
     uint256 gasUsedInUmb = gasUsedInUsd / umbUsd;
 
-    emit EstimatedGasInUMB(msg.sender, contractAddress, data, gasUsedInUmb);
+    emit EstimatedGasInUMB(
+      msg.sender,
+      contractAddress,
+      data,
+      gasUsedInUmb,
+      gasUsed,
+      tx.gasprice,
+      etherUsd,
+      umbUsd
+    );
     return gasUsedInUmb;
   }
 }
