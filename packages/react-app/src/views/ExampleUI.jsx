@@ -40,6 +40,12 @@ export default function ExampleUI({
             </li>{" "}
           </ol>
         </p>
+        <h2>Example contract function to estimate:</h2>
+        <p>
+          Contract Address (Ropsten): 0x39981933FaB2Ee93a434E7eC1219891cb84fB44C <br />
+          {/* Gas Price: 1000000000 (1 Gwei) <br /> */}
+          Call Data: 0xd09de08a (call a method named increment without any arguments) <br />
+        </p>
       </div>
     </div>
   );
